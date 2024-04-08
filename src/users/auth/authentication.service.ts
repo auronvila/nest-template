@@ -25,7 +25,7 @@ export class AuthenticationService {
   async signUp(newUserData: CreateUserDto) {
     const userExists = await this.userService.findUserByEmail(newUserData.email);
     if (userExists) {
-      throw new HttpException('user with this email exists', HttpStatus.BAD_REQUEST);
+      throw new HttpException('User with this email exists', HttpStatus.BAD_REQUEST);
     }
     const hashedPassword = await bcrypt.hash(newUserData.password, 10);
     const user = new UsersEntity();
