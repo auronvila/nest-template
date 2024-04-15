@@ -5,8 +5,7 @@ import { UsersEntity } from '@app/users/users.entity';
 import { UsersService } from '@app/users/users.service';
 import { SignInDto } from '@app/users/dto/sign-in.dto';
 import { JwtService } from '@nestjs/jwt';
-import { CreateUser1712220860556 } from '@app/migrations/1712220860556-CreateUser';
-import * as process from 'process'; // Assuming you have a UserService
+import * as process from 'process';
 
 @Injectable()
 export class AuthenticationService {
