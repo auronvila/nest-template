@@ -7,6 +7,7 @@ import { UserResponseDto } from '@app/users/dto/user-response.dto';
 import { User } from '@app/users/decorators/user.decorator';
 import { JwtAuthGuard } from '@app/users/guards/auth.guard';
 import { UsersService } from '@app/users/users.service';
+import { UsersEntity } from '@app/users/users.entity';
 
 @Controller('users')
 @Serialize(UserResponseDto)
@@ -29,7 +30,7 @@ export class UsersController {
 
   @Get('/getProfileInfo')
   @UseGuards(JwtAuthGuard)
-  async getProfileInfo(@User('id') currentUserId: string) {
-    return this.userService.getUserInfo(currentUserId);
+  async getProfileInfo(@User() currentUser: UsersEntity) {
+    return this.userService.getUserInfo(currentUser.id);
   }
 }

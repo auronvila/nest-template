@@ -2,6 +2,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import * as process from 'process';
 import * as dotenv from 'dotenv';
+import { UsersEntity } from '@app/users/users.entity';
 
 dotenv.config();
 
@@ -14,7 +15,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: any) {
-    return { userId: payload.id, email: payload.email };
+  async validate(payload: UsersEntity) {
+    return { email: payload.email, phoneNumber: payload.phoneNumber, id: payload.id, fullName: payload.fullName };
   }
 }

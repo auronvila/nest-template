@@ -17,7 +17,7 @@ export class AuthenticationService {
 
 
   async generateAccessToken(user: UsersEntity) {
-    const payload = { email: user.email, id: user.id, phoneNumber: user.phoneNumber };
+    const payload = { email: user.email, id: user.id, phoneNumber: user.phoneNumber, fullName: user.fullName };
     return this.jwtService.sign(payload, { secret: process.env.JWT_SECRET, expiresIn: '6m' });
   }
 

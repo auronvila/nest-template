@@ -1,6 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { NumberSelectorEntity } from '@app/number-selector/number-selector.entity';
 
-@Entity({name:'users'})
+@Entity({ name: 'users' })
 export class UsersEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
