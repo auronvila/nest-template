@@ -18,7 +18,7 @@ export class NumberSelectorController {
     return this.numberSelectorService.create(reqBody, currentUserId.id);
   }
 
-  @Get('getByUser')
+  @Get()
   @UseGuards(JwtAuthGuard)
   async getByUserId(@User() currentUser: UsersEntity) {
     return this.numberSelectorService.getByUserId(currentUser.id);

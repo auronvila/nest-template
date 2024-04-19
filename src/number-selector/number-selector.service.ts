@@ -5,6 +5,7 @@ import { Repository } from 'typeorm';
 import { CreateReqBodyDto } from '@app/number-selector/dto/create-req-body.dto';
 import { UsersEntity } from '@app/users/users.entity';
 import * as dayjs from 'dayjs';
+import getCurrentDateFormated from '@app/shared/utils';
 
 @Injectable()
 export class NumberSelectorService {
@@ -16,8 +17,7 @@ export class NumberSelectorService {
 
   async create(reqBody: CreateReqBodyDto, userId: string) {
     const newRecord = new NumberSelectorEntity();
-    const newDate = new Date()
-    const formattedDate = dayjs(newDate).format('DD-MM-YYYY:HH:mm');
+    const formattedDate = getCurrentDateFormated()
     newRecord.userId = userId;
     newRecord.createdAt = formattedDate
     Object.assign(newRecord, reqBody);
