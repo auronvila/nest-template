@@ -3,6 +3,12 @@ version: '3'
 services:
   nest-app:
     container_name: life-kinetics-backend
+    networks:
+      - pg-db_postgres
     build: .
     ports:
       - "3101:3101"
+
+networks:
+  pg-db_postgres:
+    external: true
