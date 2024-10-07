@@ -2,7 +2,7 @@ version: '3'
 
 services:
   nest-app:
-    container_name: life-kinetics-backend
+    container_name: nest-template
     networks:
       - pg-db_postgres
     build: .

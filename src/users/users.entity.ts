@@ -1,5 +1,4 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { NumberSelectorEntity } from '@app/number-selector/number-selector.entity';
 
 @Entity({ name: 'users' })
 export class UsersEntity {
